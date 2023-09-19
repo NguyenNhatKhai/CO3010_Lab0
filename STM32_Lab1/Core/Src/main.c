@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
+#include "led7seg_display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -31,9 +32,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define RED_DURATION 5
-#define GREEN_DURATION 3
-#define YELLOW_DURATION 2
+#define DURATION 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -93,53 +92,14 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(LED_0R_GPIO_Port, LED_0R_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(LED_0G_GPIO_Port, LED_0G_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(LED_0Y_GPIO_Port, LED_0Y_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_SET);
-  setTimer0R(RED_DURATION);
-  setTimer1G(GREEN_DURATION);
+  setTimer0(DURATION);
   while (1)
   {
-	  if (timer0R_flag == 1) {
-		  timer0R_flag = 0;
-		  HAL_GPIO_WritePin(LED_0R_GPIO_Port, LED_0R_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_0G_GPIO_Port, LED_0G_Pin, GPIO_PIN_RESET);
-		  setTimer0G(GREEN_DURATION);
-	  }
-	  if (timer0G_flag == 1) {
-		  timer0G_flag = 0;
-		  HAL_GPIO_WritePin(LED_0G_GPIO_Port, LED_0G_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_0Y_GPIO_Port, LED_0Y_Pin, GPIO_PIN_RESET);
-		  setTimer0Y(YELLOW_DURATION);
-	  }
-	  if (timer0Y_flag == 1) {
-		  timer0Y_flag = 0;
-		  HAL_GPIO_WritePin(LED_0Y_GPIO_Port, LED_0Y_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_0R_GPIO_Port, LED_0R_Pin, GPIO_PIN_RESET);
-		  setTimer0R(RED_DURATION);
-	  }
-	  if (timer1R_flag == 1) {
-		  timer1R_flag = 0;
-		  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_RESET);
-		  setTimer1G(GREEN_DURATION);
-	  }
-	  if (timer1G_flag == 1) {
-		  timer1G_flag = 0;
-		  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_RESET);
-		  setTimer1Y(YELLOW_DURATION);
-	  }
-	  if (timer1Y_flag == 1) {
-		  timer1Y_flag = 0;
-		  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_RESET);
-		  setTimer1R(RED_DURATION);
+	  if (timer0_flag == 1) {
+		  setTimer0(DURATION);
 	  }
 	  runTimer();
+	  display7SEG(timer0_counter);
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
@@ -202,8 +162,8 @@ static void MX_GPIO_Init(void)
                           |LED_1Y_Pin|LED_1G_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, SEG_0A_Pin|SEG_0B_Pin|SEG_0C_Pin|SEG_0D_Pin
-                          |SEG_0E_Pin|SEG_0F_Pin|SEG_0G_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, SEG_A_Pin|SEG_B_Pin|SEG_C_Pin|SEG_D_Pin
+                          |SEG_E_Pin|SEG_F_Pin|SEG_G_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : LED_0R_Pin LED_0Y_Pin LED_0G_Pin LED_1R_Pin
                            LED_1Y_Pin LED_1G_Pin */
@@ -214,10 +174,10 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : SEG_0A_Pin SEG_0B_Pin SEG_0C_Pin SEG_0D_Pin
-                           SEG_0E_Pin SEG_0F_Pin SEG_0G_Pin */
-  GPIO_InitStruct.Pin = SEG_0A_Pin|SEG_0B_Pin|SEG_0C_Pin|SEG_0D_Pin
-                          |SEG_0E_Pin|SEG_0F_Pin|SEG_0G_Pin;
+  /*Configure GPIO pins : SEG_A_Pin SEG_B_Pin SEG_C_Pin SEG_D_Pin
+                           SEG_E_Pin SEG_F_Pin SEG_G_Pin */
+  GPIO_InitStruct.Pin = SEG_A_Pin|SEG_B_Pin|SEG_C_Pin|SEG_D_Pin
+                          |SEG_E_Pin|SEG_F_Pin|SEG_G_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
