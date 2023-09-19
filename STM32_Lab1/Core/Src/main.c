@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
+#include "led7seg_display.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -101,45 +102,57 @@ int main(void)
   HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_SET);
   setTimer0R(RED_DURATION);
   setTimer1G(GREEN_DURATION);
+  int led7segNumber0 = RED_DURATION;
+  int led7segNumber1 = GREEN_DURATION;
   while (1)
   {
+	  display7SEG0(led7segNumber0);
+	  display7SEG1(led7segNumber1);
 	  if (timer0R_flag == 1) {
 		  timer0R_flag = 0;
 		  HAL_GPIO_WritePin(LED_0R_GPIO_Port, LED_0R_Pin, GPIO_PIN_SET);
 		  HAL_GPIO_WritePin(LED_0G_GPIO_Port, LED_0G_Pin, GPIO_PIN_RESET);
 		  setTimer0G(GREEN_DURATION);
+		  led7segNumber0 = GREEN_DURATION;
 	  }
 	  if (timer0G_flag == 1) {
 		  timer0G_flag = 0;
 		  HAL_GPIO_WritePin(LED_0G_GPIO_Port, LED_0G_Pin, GPIO_PIN_SET);
 		  HAL_GPIO_WritePin(LED_0Y_GPIO_Port, LED_0Y_Pin, GPIO_PIN_RESET);
 		  setTimer0Y(YELLOW_DURATION);
+		  led7segNumber0 = YELLOW_DURATION;
 	  }
 	  if (timer0Y_flag == 1) {
 		  timer0Y_flag = 0;
 		  HAL_GPIO_WritePin(LED_0Y_GPIO_Port, LED_0Y_Pin, GPIO_PIN_SET);
 		  HAL_GPIO_WritePin(LED_0R_GPIO_Port, LED_0R_Pin, GPIO_PIN_RESET);
 		  setTimer0R(RED_DURATION);
+		  led7segNumber0 = RED_DURATION;
 	  }
 	  if (timer1R_flag == 1) {
 		  timer1R_flag = 0;
 		  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_SET);
 		  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_RESET);
 		  setTimer1G(GREEN_DURATION);
+		  led7segNumber1 = GREEN_DURATION;
 	  }
 	  if (timer1G_flag == 1) {
 		  timer1G_flag = 0;
 		  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_SET);
 		  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_RESET);
 		  setTimer1Y(YELLOW_DURATION);
+		  led7segNumber1 = YELLOW_DURATION;
 	  }
 	  if (timer1Y_flag == 1) {
 		  timer1Y_flag = 0;
 		  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_SET);
 		  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_RESET);
 		  setTimer1R(RED_DURATION);
+		  led7segNumber1 = RED_DURATION;
 	  }
 	  runTimer();
+	  led7segNumber0 --;
+	  led7segNumber1 --;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
