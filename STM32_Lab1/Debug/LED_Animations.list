@@ -339,7 +339,7 @@ __STATIC_FORCEINLINE void __disable_irq(void)
 #include "software_timer.h"
 
 int timer0_counter = 0;
-int timer0_flag = 0;
+timer0_flag = 0;
 
 void setTimer0(int duration){
  8000294:	b480      	push	{r7}
@@ -365,6 +365,7 @@ void setTimer0(int duration){
  80002b8:	2000002c 	.word	0x2000002c
 
 080002bc <runTimer>:
+
 void runTimer(){
  80002bc:	b480      	push	{r7}
  80002be:	af00      	add	r7, sp, #0
