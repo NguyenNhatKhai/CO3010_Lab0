@@ -1,7 +1,7 @@
-../Core/Src/software_timer.c:23:6:setTimer0	16	static
-../Core/Src/software_timer.c:27:6:setTimer1	16	static
-../Core/Src/software_timer.c:31:6:setTimer2	16	static
-../Core/Src/software_timer.c:35:6:setTimer3	16	static
-../Core/Src/software_timer.c:39:6:setTimer4	16	static
-../Core/Src/software_timer.c:43:6:setTimer5	16	static
+../Core/Src/software_timer.c:23:6:setTimer0R	16	static
+../Core/Src/software_timer.c:27:6:setTimer0G	16	static
+../Core/Src/software_timer.c:31:6:setTimer0Y	16	static
+../Core/Src/software_timer.c:35:6:setTimer1R	16	static
+../Core/Src/software_timer.c:39:6:setTimer1G	16	static
+../Core/Src/software_timer.c:43:6:setTimer1Y	16	static
 ../Core/Src/software_timer.c:48:6:runTimer	4	static
