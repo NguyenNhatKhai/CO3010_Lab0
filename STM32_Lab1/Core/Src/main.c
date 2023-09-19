@@ -28,6 +28,9 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 #define TEST_DURATION 1
+#define SECOND_DURATION 5
+#define MINUTE_DURATION 300
+#define HOUR_DURATION 3600
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -91,11 +94,30 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  clearAllClock();
-  setTimer0(TEST_DURATION);
+  setTimer0(SECOND_DURATION);
+  setTimer1(MINUTE_DURATION);
+  setTimer2(HOUR_DURATION);
+  int currentSecond = 0;
+  int currentMinute = 0;
+  int currentHour = 0;
   while (1)
   {
-	  testClock(TEST_DURATION);
+	  clearAllClock();
+	  setNumberOnClock(currentSecond);
+	  setNumberOnClock(currentMinute);
+	  setNumberOnClock(currentHour);
+	  if (timer0_flag == 1) {
+		  currentSecond = (currentSecond + 1) % 12;
+		  setTimer0(SECOND_DURATION);
+	  }
+	  if (timer1_flag == 1) {
+		  currentMinute = (currentMinute + 1) % 12;
+		  setTimer1(MINUTE_DURATION);
+	  }
+	  if (timer2_flag == 1) {
+		  currentHour = (currentHour + 1) % 12;
+		  setTimer2(HOUR_DURATION);
+	  }
 	  runTimer();
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
