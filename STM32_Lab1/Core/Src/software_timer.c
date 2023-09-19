@@ -39,7 +39,7 @@ void runTimer(){
 		if(timer1_counter <= 0){
 			timer1_flag = 1;
 		}
-		}
+	}
 	if(timer2_counter > 0){
 		timer2_counter --;
 		if(timer2_counter <= 0){
