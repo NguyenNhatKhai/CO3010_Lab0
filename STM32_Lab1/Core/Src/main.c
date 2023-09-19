@@ -32,8 +32,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define RED_DURATION 5
-#define YELLOW_DURATION 2
 #define GREEN_DURATION 3
+#define YELLOW_DURATION 2
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -93,29 +93,51 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED_R0_GPIO_Port, LED_R0_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(LED_Y0_GPIO_Port, LED_Y0_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED_G0_GPIO_Port, LED_G0_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED_R1_GPIO_Port, LED_R1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED_Y1_GPIO_Port, LED_Y1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(LED_G1_GPIO_Port, LED_G1_Pin, GPIO_PIN_RESET);
   setTimer0(RED_DURATION);
+  setTimer4(GREEN_DURATION);
   while (1)
   {
 	  if (timer0_flag == 1) {
 		  timer0_flag = 0;
-		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_RESET);
-		  setTimer1(YELLOW_DURATION);
+		  HAL_GPIO_WritePin(LED_R0_GPIO_Port, LED_R0_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_G0_GPIO_Port, LED_G0_Pin, GPIO_PIN_RESET);
+		  setTimer1(GREEN_DURATION);
 	  }
 	  if (timer1_flag == 1) {
 		  timer1_flag = 0;
-		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
-		  setTimer2(GREEN_DURATION);
+		  HAL_GPIO_WritePin(LED_G0_GPIO_Port, LED_G0_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_Y0_GPIO_Port, LED_Y0_Pin, GPIO_PIN_RESET);
+		  setTimer2(YELLOW_DURATION);
 	  }
 	  if (timer2_flag == 1) {
 		  timer2_flag = 0;
-		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
-		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+		  HAL_GPIO_WritePin(LED_Y0_GPIO_Port, LED_Y0_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_R0_GPIO_Port, LED_R0_Pin, GPIO_PIN_RESET);
 		  setTimer0(RED_DURATION);
+	  }
+	  if (timer3_flag == 1) {
+		  timer3_flag = 0;
+		  HAL_GPIO_WritePin(LED_R1_GPIO_Port, LED_R1_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_G1_GPIO_Port, LED_G1_Pin, GPIO_PIN_RESET);
+		  setTimer4(GREEN_DURATION);
+	  }
+	  if (timer4_flag == 1) {
+		  timer4_flag = 0;
+		  HAL_GPIO_WritePin(LED_G1_GPIO_Port, LED_G1_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_Y1_GPIO_Port, LED_Y1_Pin, GPIO_PIN_RESET);
+		  setTimer5(YELLOW_DURATION);
+	  }
+	  if (timer5_flag == 1) {
+		  timer5_flag = 0;
+		  HAL_GPIO_WritePin(LED_Y1_GPIO_Port, LED_Y1_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_R1_GPIO_Port, LED_R1_Pin, GPIO_PIN_RESET);
+		  setTimer3(RED_DURATION);
 	  }
 	  runTimer();
 	  HAL_Delay(1000);
