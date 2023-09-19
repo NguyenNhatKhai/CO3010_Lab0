@@ -31,7 +31,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define DURATION 2
+#define RED_DURATION 5
+#define YELLOW_DURATION 2
+#define GREEN_DURATION 3
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -93,13 +95,27 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
-  setTimer0(DURATION);
+  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+  setTimer0(RED_DURATION);
   while (1)
   {
 	  if (timer0_flag == 1) {
-		  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-		  HAL_GPIO_TogglePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin);
-		  setTimer0(DURATION);
+		  timer0_flag = 0;
+		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_RESET);
+		  setTimer1(YELLOW_DURATION);
+	  }
+	  if (timer1_flag == 1) {
+		  timer1_flag = 0;
+		  HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
+		  setTimer2(GREEN_DURATION);
+	  }
+	  if (timer2_flag == 1) {
+		  timer2_flag = 0;
+		  HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
+		  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_RESET);
+		  setTimer0(RED_DURATION);
 	  }
 	  runTimer();
 	  HAL_Delay(1000);
