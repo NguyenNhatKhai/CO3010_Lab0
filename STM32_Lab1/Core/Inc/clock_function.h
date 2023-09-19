@@ -13,5 +13,6 @@
 
 void testClock(int duration);
 void clearAllClock();
+void setNumberOnClock(int num);
 
 #endif /* INC_CLOCK_FUNCTION_H_ */
