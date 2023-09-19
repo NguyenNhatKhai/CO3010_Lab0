@@ -13,12 +13,12 @@ int timer0Y_counter = 0;
 int timer1R_counter = 0;
 int timer1G_counter = 0;
 int timer1Y_counter = 0;
-timer0R_flag = 0;
-timer0G_flag = 0;
-timer0Y_flag = 0;
-timer1R_flag = 0;
-timer1G_flag = 0;
-timer1Y_flag = 0;
+int timer0R_flag = 0;
+int timer0G_flag = 0;
+int timer0Y_flag = 0;
+int timer1R_flag = 0;
+int timer1G_flag = 0;
+int timer1Y_flag = 0;
 
 void setTimer0R(int duration){
 	timer0R_counter = duration;

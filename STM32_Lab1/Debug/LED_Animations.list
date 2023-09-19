@@ -487,10 +487,10 @@ __STATIC_FORCEINLINE void __disable_irq(void)
 	...
 
 080003bc <setTimer0R>:
-timer0Y_flag = 0;
-timer1R_flag = 0;
-timer1G_flag = 0;
-timer1Y_flag = 0;
+int timer0Y_flag = 0;
+int timer1R_flag = 0;
+int timer1G_flag = 0;
+int timer1Y_flag = 0;
 
 void setTimer0R(int duration){
  80003bc:	b480      	push	{r7}
