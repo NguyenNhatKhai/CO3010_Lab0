@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_ranges 00000370  00000000  00000000  000240b0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00015769  00000000  00000000  00024420  2**0
+ 16 .debug_macro  0001576f  00000000  00000000  00024420  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00004c6c  00000000  00000000  00039b89  2**0
+ 17 .debug_line   00004c6c  00000000  00000000  00039b8f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00079932  00000000  00000000  0003e7f5  2**0
+ 18 .debug_str    00079932  00000000  00000000  0003e7fb  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000050  00000000  00000000  000b8127  2**0
+ 19 .comment      00000050  00000000  00000000  000b812d  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00000db8  00000000  00000000  000b8178  2**2
+ 20 .debug_frame  00000db8  00000000  00000000  000b8180  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -78,7 +78,7 @@ Disassembly of section .text:
 
 0800014c <testClock>:
 
-#define LED_NUMBER 12
+#include "clock_function.h"
 
 int currentLED = 0;
 
