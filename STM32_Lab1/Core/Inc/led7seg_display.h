@@ -1,5 +1,5 @@
 /*
- * leg7seg_display.h
+ * led7seg_display.h
  *
  *  Created on: Sep 19, 2023
  *      Author: Nhat Khai

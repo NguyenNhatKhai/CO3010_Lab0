@@ -1062,182 +1062,182 @@ int main(void)
  800091a:	603b      	str	r3, [r7, #0]
   while (1)
   {
+	  display7SEG0(led7segNumber0);
+ 800091c:	6878      	ldr	r0, [r7, #4]
+ 800091e:	f7ff fc15 	bl	800014c <display7SEG0>
+	  display7SEG1(led7segNumber1);
+ 8000922:	6838      	ldr	r0, [r7, #0]
+ 8000924:	f7ff fdc4 	bl	80004b0 <display7SEG1>
 	  if (timer0R_flag == 1) {
- 800091c:	4b4f      	ldr	r3, [pc, #316]	; (8000a5c <main+0x1a8>)
- 800091e:	681b      	ldr	r3, [r3, #0]
- 8000920:	2b01      	cmp	r3, #1
- 8000922:	d111      	bne.n	8000948 <main+0x94>
+ 8000928:	4b4c      	ldr	r3, [pc, #304]	; (8000a5c <main+0x1a8>)
+ 800092a:	681b      	ldr	r3, [r3, #0]
+ 800092c:	2b01      	cmp	r3, #1
+ 800092e:	d111      	bne.n	8000954 <main+0xa0>
 		  timer0R_flag = 0;
- 8000924:	4b4d      	ldr	r3, [pc, #308]	; (8000a5c <main+0x1a8>)
- 8000926:	2200      	movs	r2, #0
- 8000928:	601a      	str	r2, [r3, #0]
+ 8000930:	4b4a      	ldr	r3, [pc, #296]	; (8000a5c <main+0x1a8>)
+ 8000932:	2200      	movs	r2, #0
+ 8000934:	601a      	str	r2, [r3, #0]
 		  HAL_GPIO_WritePin(LED_0R_GPIO_Port, LED_0R_Pin, GPIO_PIN_SET);
- 800092a:	2201      	movs	r2, #1
- 800092c:	2120      	movs	r1, #32
- 800092e:	484a      	ldr	r0, [pc, #296]	; (8000a58 <main+0x1a4>)
- 8000930:	f000 fd8a 	bl	8001448 <HAL_GPIO_WritePin>
+ 8000936:	2201      	movs	r2, #1
+ 8000938:	2120      	movs	r1, #32
+ 800093a:	4847      	ldr	r0, [pc, #284]	; (8000a58 <main+0x1a4>)
+ 800093c:	f000 fd84 	bl	8001448 <HAL_GPIO_WritePin>
 		  HAL_GPIO_WritePin(LED_0G_GPIO_Port, LED_0G_Pin, GPIO_PIN_RESET);
- 8000934:	2200      	movs	r2, #0
- 8000936:	2180      	movs	r1, #128	; 0x80
- 8000938:	4847      	ldr	r0, [pc, #284]	; (8000a58 <main+0x1a4>)
- 800093a:	f000 fd85 	bl	8001448 <HAL_GPIO_WritePin>
+ 8000940:	2200      	movs	r2, #0
+ 8000942:	2180      	movs	r1, #128	; 0x80
+ 8000944:	4844      	ldr	r0, [pc, #272]	; (8000a58 <main+0x1a4>)
+ 8000946:	f000 fd7f 	bl	8001448 <HAL_GPIO_WritePin>
 		  setTimer0G(GREEN_DURATION);
- 800093e:	2003      	movs	r0, #3
- 8000940:	f000 f944 	bl	8000bcc <setTimer0G>
+ 800094a:	2003      	movs	r0, #3
+ 800094c:	f000 f93e 	bl	8000bcc <setTimer0G>
 		  led7segNumber0 = GREEN_DURATION;
- 8000944:	2303      	movs	r3, #3
- 8000946:	607b      	str	r3, [r7, #4]
+ 8000950:	2303      	movs	r3, #3
+ 8000952:	607b      	str	r3, [r7, #4]
 	  }
 	  if (timer0G_flag == 1) {
- 8000948:	4b45      	ldr	r3, [pc, #276]	; (8000a60 <main+0x1ac>)
- 800094a:	681b      	ldr	r3, [r3, #0]
- 800094c:	2b01      	cmp	r3, #1
- 800094e:	d111      	bne.n	8000974 <main+0xc0>
+ 8000954:	4b42      	ldr	r3, [pc, #264]	; (8000a60 <main+0x1ac>)
+ 8000956:	681b      	ldr	r3, [r3, #0]
+ 8000958:	2b01      	cmp	r3, #1
+ 800095a:	d111      	bne.n	8000980 <main+0xcc>
 		  timer0G_flag = 0;
- 8000950:	4b43      	ldr	r3, [pc, #268]	; (8000a60 <main+0x1ac>)
- 8000952:	2200      	movs	r2, #0
- 8000954:	601a      	str	r2, [r3, #0]
+ 800095c:	4b40      	ldr	r3, [pc, #256]	; (8000a60 <main+0x1ac>)
+ 800095e:	2200      	movs	r2, #0
+ 8000960:	601a      	str	r2, [r3, #0]
 		  HAL_GPIO_WritePin(LED_0G_GPIO_Port, LED_0G_Pin, GPIO_PIN_SET);
- 8000956:	2201      	movs	r2, #1
- 8000958:	2180      	movs	r1, #128	; 0x80
- 800095a:	483f      	ldr	r0, [pc, #252]	; (8000a58 <main+0x1a4>)
- 800095c:	f000 fd74 	bl	8001448 <HAL_GPIO_WritePin>
+ 8000962:	2201      	movs	r2, #1
+ 8000964:	2180      	movs	r1, #128	; 0x80
+ 8000966:	483c      	ldr	r0, [pc, #240]	; (8000a58 <main+0x1a4>)
+ 8000968:	f000 fd6e 	bl	8001448 <HAL_GPIO_WritePin>
 		  HAL_GPIO_WritePin(LED_0Y_GPIO_Port, LED_0Y_Pin, GPIO_PIN_RESET);
- 8000960:	2200      	movs	r2, #0
- 8000962:	2140      	movs	r1, #64	; 0x40
- 8000964:	483c      	ldr	r0, [pc, #240]	; (8000a58 <main+0x1a4>)
- 8000966:	f000 fd6f 	bl	8001448 <HAL_GPIO_WritePin>
+ 800096c:	2200      	movs	r2, #0
+ 800096e:	2140      	movs	r1, #64	; 0x40
+ 8000970:	4839      	ldr	r0, [pc, #228]	; (8000a58 <main+0x1a4>)
+ 8000972:	f000 fd69 	bl	8001448 <HAL_GPIO_WritePin>
 		  setTimer0Y(YELLOW_DURATION);
- 800096a:	2002      	movs	r0, #2
- 800096c:	f000 f942 	bl	8000bf4 <setTimer0Y>
+ 8000976:	2002      	movs	r0, #2
+ 8000978:	f000 f93c 	bl	8000bf4 <setTimer0Y>
 		  led7segNumber0 = YELLOW_DURATION;
- 8000970:	2302      	movs	r3, #2
- 8000972:	607b      	str	r3, [r7, #4]
+ 800097c:	2302      	movs	r3, #2
+ 800097e:	607b      	str	r3, [r7, #4]
 	  }
 	  if (timer0Y_flag == 1) {
- 8000974:	4b3b      	ldr	r3, [pc, #236]	; (8000a64 <main+0x1b0>)
- 8000976:	681b      	ldr	r3, [r3, #0]
- 8000978:	2b01      	cmp	r3, #1
- 800097a:	d111      	bne.n	80009a0 <main+0xec>
+ 8000980:	4b38      	ldr	r3, [pc, #224]	; (8000a64 <main+0x1b0>)
+ 8000982:	681b      	ldr	r3, [r3, #0]
+ 8000984:	2b01      	cmp	r3, #1
+ 8000986:	d111      	bne.n	80009ac <main+0xf8>
 		  timer0Y_flag = 0;
- 800097c:	4b39      	ldr	r3, [pc, #228]	; (8000a64 <main+0x1b0>)
- 800097e:	2200      	movs	r2, #0
- 8000980:	601a      	str	r2, [r3, #0]
+ 8000988:	4b36      	ldr	r3, [pc, #216]	; (8000a64 <main+0x1b0>)
+ 800098a:	2200      	movs	r2, #0
+ 800098c:	601a      	str	r2, [r3, #0]
 		  HAL_GPIO_WritePin(LED_0Y_GPIO_Port, LED_0Y_Pin, GPIO_PIN_SET);
- 8000982:	2201      	movs	r2, #1
- 8000984:	2140      	movs	r1, #64	; 0x40
- 8000986:	4834      	ldr	r0, [pc, #208]	; (8000a58 <main+0x1a4>)
- 8000988:	f000 fd5e 	bl	8001448 <HAL_GPIO_WritePin>
+ 800098e:	2201      	movs	r2, #1
+ 8000990:	2140      	movs	r1, #64	; 0x40
+ 8000992:	4831      	ldr	r0, [pc, #196]	; (8000a58 <main+0x1a4>)
+ 8000994:	f000 fd58 	bl	8001448 <HAL_GPIO_WritePin>
 		  HAL_GPIO_WritePin(LED_0R_GPIO_Port, LED_0R_Pin, GPIO_PIN_RESET);
- 800098c:	2200      	movs	r2, #0
- 800098e:	2120      	movs	r1, #32
- 8000990:	4831      	ldr	r0, [pc, #196]	; (8000a58 <main+0x1a4>)
- 8000992:	f000 fd59 	bl	8001448 <HAL_GPIO_WritePin>
+ 8000998:	2200      	movs	r2, #0
+ 800099a:	2120      	movs	r1, #32
+ 800099c:	482e      	ldr	r0, [pc, #184]	; (8000a58 <main+0x1a4>)
+ 800099e:	f000 fd53 	bl	8001448 <HAL_GPIO_WritePin>
 		  setTimer0R(RED_DURATION);
- 8000996:	2005      	movs	r0, #5
- 8000998:	f000 f904 	bl	8000ba4 <setTimer0R>
+ 80009a2:	2005      	movs	r0, #5
+ 80009a4:	f000 f8fe 	bl	8000ba4 <setTimer0R>
 		  led7segNumber0 = RED_DURATION;
- 800099c:	2305      	movs	r3, #5
- 800099e:	607b      	str	r3, [r7, #4]
+ 80009a8:	2305      	movs	r3, #5
+ 80009aa:	607b      	str	r3, [r7, #4]
 	  }
 	  if (timer1R_flag == 1) {
- 80009a0:	4b31      	ldr	r3, [pc, #196]	; (8000a68 <main+0x1b4>)
- 80009a2:	681b      	ldr	r3, [r3, #0]
- 80009a4:	2b01      	cmp	r3, #1
- 80009a6:	d113      	bne.n	80009d0 <main+0x11c>
+ 80009ac:	4b2e      	ldr	r3, [pc, #184]	; (8000a68 <main+0x1b4>)
+ 80009ae:	681b      	ldr	r3, [r3, #0]
+ 80009b0:	2b01      	cmp	r3, #1
+ 80009b2:	d113      	bne.n	80009dc <main+0x128>
 		  timer1R_flag = 0;
- 80009a8:	4b2f      	ldr	r3, [pc, #188]	; (8000a68 <main+0x1b4>)
- 80009aa:	2200      	movs	r2, #0
- 80009ac:	601a      	str	r2, [r3, #0]
+ 80009b4:	4b2c      	ldr	r3, [pc, #176]	; (8000a68 <main+0x1b4>)
+ 80009b6:	2200      	movs	r2, #0
+ 80009b8:	601a      	str	r2, [r3, #0]
 		  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_SET);
- 80009ae:	2201      	movs	r2, #1
- 80009b0:	f44f 7180 	mov.w	r1, #256	; 0x100
- 80009b4:	4828      	ldr	r0, [pc, #160]	; (8000a58 <main+0x1a4>)
- 80009b6:	f000 fd47 	bl	8001448 <HAL_GPIO_WritePin>
-		  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_RESET);
- 80009ba:	2200      	movs	r2, #0
- 80009bc:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 80009ba:	2201      	movs	r2, #1
+ 80009bc:	f44f 7180 	mov.w	r1, #256	; 0x100
  80009c0:	4825      	ldr	r0, [pc, #148]	; (8000a58 <main+0x1a4>)
  80009c2:	f000 fd41 	bl	8001448 <HAL_GPIO_WritePin>
+		  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_RESET);
+ 80009c6:	2200      	movs	r2, #0
+ 80009c8:	f44f 6180 	mov.w	r1, #1024	; 0x400
+ 80009cc:	4822      	ldr	r0, [pc, #136]	; (8000a58 <main+0x1a4>)
+ 80009ce:	f000 fd3b 	bl	8001448 <HAL_GPIO_WritePin>
 		  setTimer1G(GREEN_DURATION);
- 80009c6:	2003      	movs	r0, #3
- 80009c8:	f000 f93c 	bl	8000c44 <setTimer1G>
+ 80009d2:	2003      	movs	r0, #3
+ 80009d4:	f000 f936 	bl	8000c44 <setTimer1G>
 		  led7segNumber1 = GREEN_DURATION;
- 80009cc:	2303      	movs	r3, #3
- 80009ce:	603b      	str	r3, [r7, #0]
+ 80009d8:	2303      	movs	r3, #3
+ 80009da:	603b      	str	r3, [r7, #0]
 	  }
 	  if (timer1G_flag == 1) {
- 80009d0:	4b26      	ldr	r3, [pc, #152]	; (8000a6c <main+0x1b8>)
- 80009d2:	681b      	ldr	r3, [r3, #0]
- 80009d4:	2b01      	cmp	r3, #1
- 80009d6:	d113      	bne.n	8000a00 <main+0x14c>
+ 80009dc:	4b23      	ldr	r3, [pc, #140]	; (8000a6c <main+0x1b8>)
+ 80009de:	681b      	ldr	r3, [r3, #0]
+ 80009e0:	2b01      	cmp	r3, #1
+ 80009e2:	d113      	bne.n	8000a0c <main+0x158>
 		  timer1G_flag = 0;
- 80009d8:	4b24      	ldr	r3, [pc, #144]	; (8000a6c <main+0x1b8>)
- 80009da:	2200      	movs	r2, #0
- 80009dc:	601a      	str	r2, [r3, #0]
+ 80009e4:	4b21      	ldr	r3, [pc, #132]	; (8000a6c <main+0x1b8>)
+ 80009e6:	2200      	movs	r2, #0
+ 80009e8:	601a      	str	r2, [r3, #0]
 		  HAL_GPIO_WritePin(LED_1G_GPIO_Port, LED_1G_Pin, GPIO_PIN_SET);
- 80009de:	2201      	movs	r2, #1
- 80009e0:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 80009e4:	481c      	ldr	r0, [pc, #112]	; (8000a58 <main+0x1a4>)
- 80009e6:	f000 fd2f 	bl	8001448 <HAL_GPIO_WritePin>
-		  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_RESET);
- 80009ea:	2200      	movs	r2, #0
- 80009ec:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 80009ea:	2201      	movs	r2, #1
+ 80009ec:	f44f 6180 	mov.w	r1, #1024	; 0x400
  80009f0:	4819      	ldr	r0, [pc, #100]	; (8000a58 <main+0x1a4>)
  80009f2:	f000 fd29 	bl	8001448 <HAL_GPIO_WritePin>
+		  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_RESET);
+ 80009f6:	2200      	movs	r2, #0
+ 80009f8:	f44f 7100 	mov.w	r1, #512	; 0x200
+ 80009fc:	4816      	ldr	r0, [pc, #88]	; (8000a58 <main+0x1a4>)
+ 80009fe:	f000 fd23 	bl	8001448 <HAL_GPIO_WritePin>
 		  setTimer1Y(YELLOW_DURATION);
- 80009f6:	2002      	movs	r0, #2
- 80009f8:	f000 f938 	bl	8000c6c <setTimer1Y>
+ 8000a02:	2002      	movs	r0, #2
+ 8000a04:	f000 f932 	bl	8000c6c <setTimer1Y>
 		  led7segNumber1 = YELLOW_DURATION;
- 80009fc:	2302      	movs	r3, #2
- 80009fe:	603b      	str	r3, [r7, #0]
+ 8000a08:	2302      	movs	r3, #2
+ 8000a0a:	603b      	str	r3, [r7, #0]
 	  }
 	  if (timer1Y_flag == 1) {
- 8000a00:	4b1b      	ldr	r3, [pc, #108]	; (8000a70 <main+0x1bc>)
- 8000a02:	681b      	ldr	r3, [r3, #0]
- 8000a04:	2b01      	cmp	r3, #1
- 8000a06:	d113      	bne.n	8000a30 <main+0x17c>
+ 8000a0c:	4b18      	ldr	r3, [pc, #96]	; (8000a70 <main+0x1bc>)
+ 8000a0e:	681b      	ldr	r3, [r3, #0]
+ 8000a10:	2b01      	cmp	r3, #1
+ 8000a12:	d113      	bne.n	8000a3c <main+0x188>
 		  timer1Y_flag = 0;
- 8000a08:	4b19      	ldr	r3, [pc, #100]	; (8000a70 <main+0x1bc>)
- 8000a0a:	2200      	movs	r2, #0
- 8000a0c:	601a      	str	r2, [r3, #0]
+ 8000a14:	4b16      	ldr	r3, [pc, #88]	; (8000a70 <main+0x1bc>)
+ 8000a16:	2200      	movs	r2, #0
+ 8000a18:	601a      	str	r2, [r3, #0]
 		  HAL_GPIO_WritePin(LED_1Y_GPIO_Port, LED_1Y_Pin, GPIO_PIN_SET);
- 8000a0e:	2201      	movs	r2, #1
- 8000a10:	f44f 7100 	mov.w	r1, #512	; 0x200
- 8000a14:	4810      	ldr	r0, [pc, #64]	; (8000a58 <main+0x1a4>)
- 8000a16:	f000 fd17 	bl	8001448 <HAL_GPIO_WritePin>
-		  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_RESET);
- 8000a1a:	2200      	movs	r2, #0
- 8000a1c:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 8000a1a:	2201      	movs	r2, #1
+ 8000a1c:	f44f 7100 	mov.w	r1, #512	; 0x200
  8000a20:	480d      	ldr	r0, [pc, #52]	; (8000a58 <main+0x1a4>)
  8000a22:	f000 fd11 	bl	8001448 <HAL_GPIO_WritePin>
+		  HAL_GPIO_WritePin(LED_1R_GPIO_Port, LED_1R_Pin, GPIO_PIN_RESET);
+ 8000a26:	2200      	movs	r2, #0
+ 8000a28:	f44f 7180 	mov.w	r1, #256	; 0x100
+ 8000a2c:	480a      	ldr	r0, [pc, #40]	; (8000a58 <main+0x1a4>)
+ 8000a2e:	f000 fd0b 	bl	8001448 <HAL_GPIO_WritePin>
 		  setTimer1R(RED_DURATION);
- 8000a26:	2005      	movs	r0, #5
- 8000a28:	f000 f8f8 	bl	8000c1c <setTimer1R>
+ 8000a32:	2005      	movs	r0, #5
+ 8000a34:	f000 f8f2 	bl	8000c1c <setTimer1R>
 		  led7segNumber1 = RED_DURATION;
- 8000a2c:	2305      	movs	r3, #5
- 8000a2e:	603b      	str	r3, [r7, #0]
+ 8000a38:	2305      	movs	r3, #5
+ 8000a3a:	603b      	str	r3, [r7, #0]
 	  }
 	  runTimer();
- 8000a30:	f000 f930 	bl	8000c94 <runTimer>
+ 8000a3c:	f000 f92a 	bl	8000c94 <runTimer>
 	  led7segNumber0 --;
- 8000a34:	687b      	ldr	r3, [r7, #4]
- 8000a36:	3b01      	subs	r3, #1
- 8000a38:	607b      	str	r3, [r7, #4]
+ 8000a40:	687b      	ldr	r3, [r7, #4]
+ 8000a42:	3b01      	subs	r3, #1
+ 8000a44:	607b      	str	r3, [r7, #4]
 	  led7segNumber1 --;
- 8000a3a:	683b      	ldr	r3, [r7, #0]
- 8000a3c:	3b01      	subs	r3, #1
- 8000a3e:	603b      	str	r3, [r7, #0]
-	  display7SEG0(led7segNumber0);
- 8000a40:	6878      	ldr	r0, [r7, #4]
- 8000a42:	f7ff fb83 	bl	800014c <display7SEG0>
-	  display7SEG1(led7segNumber1);
- 8000a46:	6838      	ldr	r0, [r7, #0]
- 8000a48:	f7ff fd32 	bl	80004b0 <display7SEG1>
+ 8000a46:	683b      	ldr	r3, [r7, #0]
+ 8000a48:	3b01      	subs	r3, #1
+ 8000a4a:	603b      	str	r3, [r7, #0]
 	  HAL_Delay(1000);
  8000a4c:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
  8000a50:	f000 fa76 	bl	8000f40 <HAL_Delay>
-	  if (timer0R_flag == 1) {
+	  display7SEG0(led7segNumber0);
  8000a54:	e762      	b.n	800091c <main+0x68>
  8000a56:	bf00      	nop
  8000a58:	40010800 	.word	0x40010800
@@ -1483,7 +1483,7 @@ int timer1R_flag = 0;
 int timer1G_flag = 0;
 int timer1Y_flag = 0;
 
-void setTimer0R(int duration){
+void setTimer0R(int duration) {
  8000ba4:	b480      	push	{r7}
  8000ba6:	b083      	sub	sp, #12
  8000ba8:	af00      	add	r7, sp, #0
@@ -1507,7 +1507,7 @@ void setTimer0R(int duration){
  8000bc8:	20000040 	.word	0x20000040
 
 08000bcc <setTimer0G>:
-void setTimer0G(int duration){
+void setTimer0G(int duration) {
  8000bcc:	b480      	push	{r7}
  8000bce:	b083      	sub	sp, #12
  8000bd0:	af00      	add	r7, sp, #0
@@ -1531,7 +1531,7 @@ void setTimer0G(int duration){
  8000bf0:	20000044 	.word	0x20000044
 
 08000bf4 <setTimer0Y>:
-void setTimer0Y(int duration){
+void setTimer0Y(int duration) {
  8000bf4:	b480      	push	{r7}
  8000bf6:	b083      	sub	sp, #12
  8000bf8:	af00      	add	r7, sp, #0
@@ -1555,7 +1555,7 @@ void setTimer0Y(int duration){
  8000c18:	20000048 	.word	0x20000048
 
 08000c1c <setTimer1R>:
-void setTimer1R(int duration){
+void setTimer1R(int duration) {
  8000c1c:	b480      	push	{r7}
  8000c1e:	b083      	sub	sp, #12
  8000c20:	af00      	add	r7, sp, #0
@@ -1579,7 +1579,7 @@ void setTimer1R(int duration){
  8000c40:	2000004c 	.word	0x2000004c
 
 08000c44 <setTimer1G>:
-void setTimer1G(int duration){
+void setTimer1G(int duration) {
  8000c44:	b480      	push	{r7}
  8000c46:	b083      	sub	sp, #12
  8000c48:	af00      	add	r7, sp, #0
@@ -1603,7 +1603,7 @@ void setTimer1G(int duration){
  8000c68:	20000050 	.word	0x20000050
 
 08000c6c <setTimer1Y>:
-void setTimer1Y(int duration){
+void setTimer1Y(int duration) {
  8000c6c:	b480      	push	{r7}
  8000c6e:	b083      	sub	sp, #12
  8000c70:	af00      	add	r7, sp, #0
@@ -1628,10 +1628,10 @@ void setTimer1Y(int duration){
 
 08000c94 <runTimer>:
 
-void runTimer(){
+void runTimer() {
  8000c94:	b480      	push	{r7}
  8000c96:	af00      	add	r7, sp, #0
-	if(timer0R_counter > 0){
+	if (timer0R_counter > 0) {
  8000c98:	4b31      	ldr	r3, [pc, #196]	; (8000d60 <runTimer+0xcc>)
  8000c9a:	681b      	ldr	r3, [r3, #0]
  8000c9c:	2b00      	cmp	r3, #0
@@ -1642,7 +1642,7 @@ void runTimer(){
  8000ca4:	3b01      	subs	r3, #1
  8000ca6:	4a2e      	ldr	r2, [pc, #184]	; (8000d60 <runTimer+0xcc>)
  8000ca8:	6013      	str	r3, [r2, #0]
-		if(timer0R_counter <= 0){
+		if (timer0R_counter <= 0) {
  8000caa:	4b2d      	ldr	r3, [pc, #180]	; (8000d60 <runTimer+0xcc>)
  8000cac:	681b      	ldr	r3, [r3, #0]
  8000cae:	2b00      	cmp	r3, #0
@@ -1653,7 +1653,7 @@ void runTimer(){
  8000cb6:	601a      	str	r2, [r3, #0]
 		}
 	}
-	if(timer0G_counter > 0){
+	if (timer0G_counter > 0) {
  8000cb8:	4b2b      	ldr	r3, [pc, #172]	; (8000d68 <runTimer+0xd4>)
  8000cba:	681b      	ldr	r3, [r3, #0]
  8000cbc:	2b00      	cmp	r3, #0
@@ -1664,7 +1664,7 @@ void runTimer(){
  8000cc4:	3b01      	subs	r3, #1
  8000cc6:	4a28      	ldr	r2, [pc, #160]	; (8000d68 <runTimer+0xd4>)
  8000cc8:	6013      	str	r3, [r2, #0]
-		if(timer0G_counter <= 0){
+		if (timer0G_counter <= 0) {
  8000cca:	4b27      	ldr	r3, [pc, #156]	; (8000d68 <runTimer+0xd4>)
  8000ccc:	681b      	ldr	r3, [r3, #0]
  8000cce:	2b00      	cmp	r3, #0
@@ -1675,7 +1675,7 @@ void runTimer(){
  8000cd6:	601a      	str	r2, [r3, #0]
 		}
 	}
-	if(timer0Y_counter > 0){
+	if (timer0Y_counter > 0) {
  8000cd8:	4b25      	ldr	r3, [pc, #148]	; (8000d70 <runTimer+0xdc>)
  8000cda:	681b      	ldr	r3, [r3, #0]
  8000cdc:	2b00      	cmp	r3, #0
@@ -1686,7 +1686,7 @@ void runTimer(){
  8000ce4:	3b01      	subs	r3, #1
  8000ce6:	4a22      	ldr	r2, [pc, #136]	; (8000d70 <runTimer+0xdc>)
  8000ce8:	6013      	str	r3, [r2, #0]
-		if(timer0Y_counter <= 0){
+		if (timer0Y_counter <= 0) {
  8000cea:	4b21      	ldr	r3, [pc, #132]	; (8000d70 <runTimer+0xdc>)
  8000cec:	681b      	ldr	r3, [r3, #0]
  8000cee:	2b00      	cmp	r3, #0
@@ -1697,7 +1697,7 @@ void runTimer(){
  8000cf6:	601a      	str	r2, [r3, #0]
 		}
 	}
-	if(timer1R_counter > 0){
+	if (timer1R_counter > 0) {
  8000cf8:	4b1f      	ldr	r3, [pc, #124]	; (8000d78 <runTimer+0xe4>)
  8000cfa:	681b      	ldr	r3, [r3, #0]
  8000cfc:	2b00      	cmp	r3, #0
@@ -1708,7 +1708,7 @@ void runTimer(){
  8000d04:	3b01      	subs	r3, #1
  8000d06:	4a1c      	ldr	r2, [pc, #112]	; (8000d78 <runTimer+0xe4>)
  8000d08:	6013      	str	r3, [r2, #0]
-		if(timer1R_counter <= 0){
+		if (timer1R_counter <= 0) {
  8000d0a:	4b1b      	ldr	r3, [pc, #108]	; (8000d78 <runTimer+0xe4>)
  8000d0c:	681b      	ldr	r3, [r3, #0]
  8000d0e:	2b00      	cmp	r3, #0
@@ -1719,7 +1719,7 @@ void runTimer(){
  8000d16:	601a      	str	r2, [r3, #0]
 		}
 	}
-	if(timer1G_counter > 0){
+	if (timer1G_counter > 0) {
  8000d18:	4b19      	ldr	r3, [pc, #100]	; (8000d80 <runTimer+0xec>)
  8000d1a:	681b      	ldr	r3, [r3, #0]
  8000d1c:	2b00      	cmp	r3, #0
@@ -1730,7 +1730,7 @@ void runTimer(){
  8000d24:	3b01      	subs	r3, #1
  8000d26:	4a16      	ldr	r2, [pc, #88]	; (8000d80 <runTimer+0xec>)
  8000d28:	6013      	str	r3, [r2, #0]
-		if(timer1G_counter <= 0){
+		if (timer1G_counter <= 0) {
  8000d2a:	4b15      	ldr	r3, [pc, #84]	; (8000d80 <runTimer+0xec>)
  8000d2c:	681b      	ldr	r3, [r3, #0]
  8000d2e:	2b00      	cmp	r3, #0
@@ -1741,7 +1741,7 @@ void runTimer(){
  8000d36:	601a      	str	r2, [r3, #0]
 		}
 	}
-	if(timer1Y_counter > 0){
+	if (timer1Y_counter > 0) {
  8000d38:	4b13      	ldr	r3, [pc, #76]	; (8000d88 <runTimer+0xf4>)
  8000d3a:	681b      	ldr	r3, [r3, #0]
  8000d3c:	2b00      	cmp	r3, #0
@@ -1752,7 +1752,7 @@ void runTimer(){
  8000d44:	3b01      	subs	r3, #1
  8000d46:	4a10      	ldr	r2, [pc, #64]	; (8000d88 <runTimer+0xf4>)
  8000d48:	6013      	str	r3, [r2, #0]
-		if(timer1Y_counter <= 0){
+		if (timer1Y_counter <= 0) {
  8000d4a:	4b0f      	ldr	r3, [pc, #60]	; (8000d88 <runTimer+0xf4>)
  8000d4c:	681b      	ldr	r3, [r3, #0]
  8000d4e:	2b00      	cmp	r3, #0

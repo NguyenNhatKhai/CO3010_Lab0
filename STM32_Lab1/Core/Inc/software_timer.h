@@ -21,7 +21,6 @@ void setTimer0Y(int duration);
 void setTimer1R(int duration);
 void setTimer1G(int duration);
 void setTimer1Y(int duration);
-
 void runTimer();
 
 #endif /* INC_SOFTWARE_TIMER_H_ */
