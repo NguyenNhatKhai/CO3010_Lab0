@@ -28,8 +28,8 @@
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
 #define TEST_DURATION 1
-#define SECOND_DURATION 5
-#define MINUTE_DURATION 300
+#define SECOND_DURATION 1 * 5
+#define MINUTE_DURATION 60 * 5
 #define HOUR_DURATION 3600
 /* USER CODE END PTD */
 
@@ -107,15 +107,15 @@ int main(void)
 	  setNumberOnClock(currentMinute);
 	  setNumberOnClock(currentHour);
 	  if (timer0_flag == 1) {
-		  currentSecond = (currentSecond + 1) % 12;
+		  currentSecond = (currentSecond + 1) % LED_NUMBER;
 		  setTimer0(SECOND_DURATION);
 	  }
 	  if (timer1_flag == 1) {
-		  currentMinute = (currentMinute + 1) % 12;
+		  currentMinute = (currentMinute + 1) % LED_NUMBER;
 		  setTimer1(MINUTE_DURATION);
 	  }
 	  if (timer2_flag == 1) {
-		  currentHour = (currentHour + 1) % 12;
+		  currentHour = (currentHour + 1) % LED_NUMBER;
 		  setTimer2(HOUR_DURATION);
 	  }
 	  runTimer();
