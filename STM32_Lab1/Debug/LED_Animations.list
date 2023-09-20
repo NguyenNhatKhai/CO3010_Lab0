@@ -607,7 +607,7 @@ __STATIC_FORCEINLINE void __disable_irq(void)
 int timer0_counter = 0;
 int timer0_flag = 0;
 
-void setTimer0(int duration){
+void setTimer0(int duration) {
  80004ac:	b480      	push	{r7}
  80004ae:	b083      	sub	sp, #12
  80004b0:	af00      	add	r7, sp, #0
@@ -632,10 +632,10 @@ void setTimer0(int duration){
 
 080004d4 <runTimer>:
 
-void runTimer(){
+void runTimer() {
  80004d4:	b480      	push	{r7}
  80004d6:	af00      	add	r7, sp, #0
-	if(timer0_counter > 0){
+	if (timer0_counter > 0) {
  80004d8:	4b09      	ldr	r3, [pc, #36]	; (8000500 <runTimer+0x2c>)
  80004da:	681b      	ldr	r3, [r3, #0]
  80004dc:	2b00      	cmp	r3, #0
@@ -646,7 +646,7 @@ void runTimer(){
  80004e4:	3b01      	subs	r3, #1
  80004e6:	4a06      	ldr	r2, [pc, #24]	; (8000500 <runTimer+0x2c>)
  80004e8:	6013      	str	r3, [r2, #0]
-		if(timer0_counter <= 0){
+		if (timer0_counter <= 0) {
  80004ea:	4b05      	ldr	r3, [pc, #20]	; (8000500 <runTimer+0x2c>)
  80004ec:	681b      	ldr	r3, [r3, #0]
  80004ee:	2b00      	cmp	r3, #0
