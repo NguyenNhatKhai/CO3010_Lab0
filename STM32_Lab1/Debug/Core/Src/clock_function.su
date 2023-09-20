@@ -1,2 +1,2 @@
-../Core/Src/clock_function.c:14:6:testClock	16	static
-../Core/Src/clock_function.c:73:6:clearAllClock	8	static
+../Core/Src/clock_function.c:12:6:testClock	16	static
+../Core/Src/clock_function.c:71:6:clearAllClock	8	static
