@@ -30,7 +30,7 @@
 #define TEST_DURATION 1
 #define SECOND_DURATION 1 * 5
 #define MINUTE_DURATION 60 * 5
-#define HOUR_DURATION 3600
+#define HOUR_DURATION 3600 * 1
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
