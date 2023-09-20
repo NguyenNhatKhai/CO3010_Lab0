@@ -17,7 +17,7 @@ void setTimer0(int duration) {
 
 void runTimer() {
 	if (timer0_counter > 0) {
-		timer0_counter--;
+		timer0_counter --;
 		if (timer0_counter <= 0) {
 			timer0_flag = 1;
 		}
