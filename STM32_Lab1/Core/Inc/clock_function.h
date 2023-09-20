@@ -11,6 +11,8 @@
 #include "main.h"
 #include "software_timer.h"
 
+#define LED_NUMBER 12
+
 void testClock(int duration);
 void clearAllClock();
 void setNumberOnClock(int num);
