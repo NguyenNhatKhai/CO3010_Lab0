@@ -7,8 +7,6 @@
 
 #include "clock_function.h"
 
-#define LED_NUMBER 12
-
 int currentLED = 0;
 
 void testClock(int duration) {
