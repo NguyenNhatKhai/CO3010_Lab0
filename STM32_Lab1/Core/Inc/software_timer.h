@@ -11,7 +11,6 @@
 extern int timer0_flag;
 
 void setTimer0(int duration);
-
 void runTimer();
 
 #endif /* INC_SOFTWARE_TIMER_H_ */
